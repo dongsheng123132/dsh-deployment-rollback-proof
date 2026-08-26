@@ -1,0 +1,20 @@
+{
+  "name": "dsh-deployment-rollback-proof",
+  "version": "0.1.0",
+  "description": "Offline proof that failed deployments converged to one last-known-good artifact",
+  "author": { "name": "dongsheng123132" },
+  "homepage": "https://github.com/dongsheng123132/dsh-deployment-rollback-proof",
+  "repository": "https://github.com/dongsheng123132/dsh-deployment-rollback-proof",
+  "license": "MIT",
+  "keywords": ["deepseek-harness", "dsh", "deployment-rollback", "supply-chain", "evidence"],
+  "interface": {
+    "displayName": "DSH Deployment Rollback Proof",
+    "shortDescription": "Verify last-known-good rollback convergence.",
+    "longDescription": "Checks hash-only target observations for complete, timely convergence from one failed artifact to one last-known-good digest without executing rollback.",
+    "developerName": "dongsheng123132",
+    "category": "Developer Tools",
+    "capabilities": ["MCP tools", "DSH tools", "offline verification"],
+    "defaultPrompt": "Verify this explicit deployment-rollback manifest and return only hash-based evidence."
+  },
+  "mcpServers": "./.mcp.json"
+}

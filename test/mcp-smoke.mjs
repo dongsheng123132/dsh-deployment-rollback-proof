@@ -1,0 +1,23 @@
+import assert from 'node:assert/strict'
+import { spawn } from 'node:child_process'
+import { readFile } from 'node:fs/promises'
+
+const child = spawn(process.execPath, ['mcp-server.mjs'], { cwd: new URL('..', import.meta.url), shell: false, stdio: ['pipe', 'pipe', 'pipe'] })
+let stdout = ''; let stderr = ''
+child.stdout.setEncoding('utf8'); child.stderr.setEncoding('utf8')
+child.stdout.on('data', chunk => { stdout += chunk }); child.stderr.on('data', chunk => { stderr += chunk })
+const manifestJson = await readFile(new URL('../examples/rolled-back.json', import.meta.url), 'utf8')
+child.stdin.write(`${JSON.stringify({ jsonrpc: '2.0', id: 1, method: 'initialize', params: {} })}\n`)
+child.stdin.write(`${JSON.stringify({ jsonrpc: '2.0', id: 2, method: 'tools/list', params: {} })}\n`)
+child.stdin.write(`${JSON.stringify({ jsonrpc: '2.0', id: 3, method: 'tools/call', params: { name: 'deployment_rollback_verify', arguments: { manifestJson } } })}\n`)
+child.stdin.end()
+const exitCode = await Promise.race([
+  new Promise(resolve => child.on('close', resolve)),
+  new Promise((_, reject) => setTimeout(() => { child.kill(); reject(new Error('MCP smoke timeout')) }, 5000))
+])
+assert.equal(exitCode, 0, stderr)
+const lines = stdout.trim().split(/\r?\n/).map(JSON.parse)
+assert.equal(lines[1].result.tools.length, 2)
+assert.equal(lines[2].result.structuredContent.verdict, 'rolled-back')
+process.stdout.write(`${JSON.stringify({ ok: true, protocolVersion: lines[0].result.protocolVersion, toolCount: lines[1].result.tools.length, verdict: lines[2].result.structuredContent.verdict })}\n`)
+

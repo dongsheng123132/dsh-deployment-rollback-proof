@@ -1,0 +1,5 @@
+- insert:
+    - id: dsh-deployment-rollback-proof
+      name: dsh-deployment-rollback-proof
+      config:
+        workspaceRoot: .

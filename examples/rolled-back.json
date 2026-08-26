@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "proofId": "rollback-2026-08-26",
+  "evaluationTime": "2026-08-26T07:00:00.000Z",
+  "incident": {
+    "incidentReceiptSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+    "failedArtifactSha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+    "lastKnownGoodArtifactSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+    "failedDeploymentReceiptSha256": "dddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd",
+    "rollbackAuthorizationSha256": "eeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee",
+    "rollbackPlanSha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff",
+    "triggeredAt": "2026-08-26T06:00:00.000Z"
+  },
+  "policy": {
+    "requireAllTargets": true,
+    "maxRtoMs": 1800000,
+    "maxEvidenceAgeMs": 7200000,
+    "minDistinctObservers": 2,
+    "targets": [
+      { "targetIdHash": "1111111111111111111111111111111111111111111111111111111111111111", "environmentHash": "4444444444444444444444444444444444444444444444444444444444444444", "expectedReplicaCount": 2 },
+      { "targetIdHash": "2222222222222222222222222222222222222222222222222222222222222222", "environmentHash": "5555555555555555555555555555555555555555555555555555555555555555", "expectedReplicaCount": 3 },
+      { "targetIdHash": "3333333333333333333333333333333333333333333333333333333333333333", "environmentHash": "6666666666666666666666666666666666666666666666666666666666666666", "expectedReplicaCount": 1 }
+    ]
+  },
+  "observations": [
+    { "sequence": 1, "observationIdHash": "7777777777777777777777777777777777777777777777777777777777777777", "targetIdHash": "1111111111111111111111111111111111111111111111111111111111111111", "environmentHash": "4444444444444444444444444444444444444444444444444444444444444444", "artifactSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", "rollbackReceiptSha256": "7070707070707070707070707070707070707070707070707070707070707070", "incidentReceiptSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "rollbackPlanSha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", "healthProbeSha256": "1010101010101010101010101010101010101010101010101010101010101010", "observerHash": "9090909090909090909090909090909090909090909090909090909090909090", "failedArtifactActiveReplicas": 0, "knownGoodActiveReplicas": 2, "totalActiveReplicas": 2, "status": "stable", "observedAt": "2026-08-26T06:10:00.000Z" },
+    { "sequence": 2, "observationIdHash": "8888888888888888888888888888888888888888888888888888888888888888", "targetIdHash": "2222222222222222222222222222222222222222222222222222222222222222", "environmentHash": "5555555555555555555555555555555555555555555555555555555555555555", "artifactSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", "rollbackReceiptSha256": "8080808080808080808080808080808080808080808080808080808080808080", "incidentReceiptSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "rollbackPlanSha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", "healthProbeSha256": "2020202020202020202020202020202020202020202020202020202020202020", "observerHash": "9191919191919191919191919191919191919191919191919191919191919191", "failedArtifactActiveReplicas": 0, "knownGoodActiveReplicas": 3, "totalActiveReplicas": 3, "status": "stable", "observedAt": "2026-08-26T06:15:00.000Z" },
+    { "sequence": 3, "observationIdHash": "9999999999999999999999999999999999999999999999999999999999999999", "targetIdHash": "3333333333333333333333333333333333333333333333333333333333333333", "environmentHash": "6666666666666666666666666666666666666666666666666666666666666666", "artifactSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc", "rollbackReceiptSha256": "8181818181818181818181818181818181818181818181818181818181818181", "incidentReceiptSha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa", "rollbackPlanSha256": "ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", "healthProbeSha256": "3030303030303030303030303030303030303030303030303030303030303030", "observerHash": "9090909090909090909090909090909090909090909090909090909090909090", "failedArtifactActiveReplicas": 0, "knownGoodActiveReplicas": 1, "totalActiveReplicas": 1, "status": "stable", "observedAt": "2026-08-26T06:20:00.000Z" }
+  ]
+}
