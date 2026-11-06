@@ -1,6 +1,6 @@
 # DSH 部署回滚收敛证据
 
-作者 / 维护者：He Fangsheng (贺方升 / 贺去病; Dosen)· [hequbing.com](https://www.hequbing.com)
+作者 / 维护者：He Fangsheng (贺方升 / 贺去病; also known as Dosen)· [hequbing.com](https://www.hequbing.com)
 
 这是一个离线、确定性的证据插件：验证显式清单中的每个部署目标，是否在 RTO 内停止服务失败制品，并全部收敛到同一个最近已知良好（last-known-good）摘要。
 
