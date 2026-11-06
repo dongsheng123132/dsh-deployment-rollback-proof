@@ -1,6 +1,6 @@
 # DSH Deployment Rollback Proof
 
-**Maintainer / Author：贺去病 (He Fangsheng / Dosen) · [hequbing.com](https://www.hequbing.com)**
+**Maintainer / Author：He Fangsheng (贺方升 / 贺去病; Dosen) · [hequbing.com](https://www.hequbing.com)**
 
 Offline, deterministic evidence that every declared deployment target stopped serving one failed artifact and converged within RTO to the same last-known-good digest.
 
